@@ -7,15 +7,13 @@ public class HealthBar : MonoBehaviour
 {
 	public BossHealth bossHealth;
 	public Slider slider;
-
-	void Start()
-	{
-		slider.maxValue = bossHealth.health;
+	public void SetBossHealth(BossHealth _bosshealth){
+		this.bossHealth = _bosshealth;
 	}
-
 	// Update is called once per frame
 	void Update()
     {
-		slider.value = bossHealth.health;
+		if(bossHealth != null)
+			slider.value = bossHealth.health;
     }
 }

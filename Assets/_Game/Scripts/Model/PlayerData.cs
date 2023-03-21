@@ -11,26 +11,16 @@ public class PlayerData : MonoSingleton<PlayerData>
     private int m_VibrateState;
     private int m_RemoveAds;
     private int m_LosingVirginity;
-    private int m_IdSkinCat;
-    private int m_NumUndo;
-    public int IdSkinCat{
-        get{
-            return this.m_IdSkinCat;
-        }
-        set{
-            this.m_IdSkinCat = value;
-            PlayerPrefs.SetInt("IdSkinCat", value);
-            ES3.Save("IdSkinCat", value);
-        }
-    }
+    private int m_number_Timer;
+    private int m_number_Size;
+    private int m_number_Power;
     public int Coin{
         get{
             return this.m_coin;
         }
         set{
             this.m_coin = value;
-            // PlayerPrefs.SetInt("Coin", value);
-            ES3.Save("Coin", value);
+            PlayerPrefs.SetInt("Coin", value);
         }
     }
     public int CurrentLevel{
@@ -39,8 +29,7 @@ public class PlayerData : MonoSingleton<PlayerData>
         }
         set{
             this.m_CurrentLevel = value;
-            // PlayerPrefs.SetInt("CurrentLevel", value);
-            ES3.Save("CurrentLevel", value);
+            PlayerPrefs.SetInt("CurrentLevel", value);
         }
     }
     public int SoundState{
@@ -49,8 +38,7 @@ public class PlayerData : MonoSingleton<PlayerData>
         }
         set{
             this.m_SoundState = value;
-            // PlayerPrefs.SetInt("SoundState", value);
-            ES3.Save("SoundState", value);
+            PlayerPrefs.SetInt("SoundState", value);
         }
     }
     public int MusicState{
@@ -59,8 +47,7 @@ public class PlayerData : MonoSingleton<PlayerData>
         }
         set{
             this.m_MusicState = value;
-            // PlayerPrefs.SetInt("MusicState", value);
-            ES3.Save("MusicState", value);
+            PlayerPrefs.SetInt("MusicState", value);
         }
     }
     public int VibrateState{
@@ -69,8 +56,7 @@ public class PlayerData : MonoSingleton<PlayerData>
         }
         set{
             this.m_VibrateState = value;
-            // PlayerPrefs.SetInt("VibrateState", value);
-            ES3.Save("VibrateState", value);
+            PlayerPrefs.SetInt("VibrateState", value);
         }
     }
     public int RemoveAds{
@@ -79,8 +65,7 @@ public class PlayerData : MonoSingleton<PlayerData>
         }
         set{
             this.m_RemoveAds = value;
-            // PlayerPrefs.SetInt("RemoveAds", value);
-            ES3.Save("RemoveAds", value);
+            PlayerPrefs.SetInt("RemoveAds", value);
         }
     }
     public int LosingVirginity{
@@ -89,40 +74,53 @@ public class PlayerData : MonoSingleton<PlayerData>
         }
         set{
             this.m_LosingVirginity = value;
-            // PlayerPrefs.SetInt("LosingVirginity", value);
-            ES3.Save("LosingVirginity", value);
+            PlayerPrefs.SetInt("LosingVirginity", value);
         }
     }
-    protected override void Awake(){
-        // if(!PlayerPrefs.HasKey("BundleVersion")){
-        //     PlayerPrefs.SetString("BundleVersion", Application.version);
-        // }
-        if(ES3.KeyExists("BundleVersion"))
-            ES3.Save("BundleVersion", Application.version);
+    public int NumberSize{
+        get{
+            return this.m_number_Size;
+        }
+        set{
+            this.m_number_Size = value;
+            PlayerPrefs.SetInt("NumberSize", value);
+        }
+    }
+    public int NumberTimer{
+        get{
+            return this.m_number_Timer;
+        }
+        set{
+            this.m_number_Timer = value;
+            PlayerPrefs.SetInt("NumberTimer", value);
+        }
+    }
+    public int NumberPower{
+        get{
+            return this.m_number_Power;
+        }
+        set{
+            this.m_number_Power = value;
+            PlayerPrefs.SetInt("NumberPower", value);
+        }
+    }
+    protected virtual void Awake(){
+        if(!PlayerPrefs.HasKey("BundleVersion")){
+            PlayerPrefs.SetString("BundleVersion", Application.version);
+        }
+        m_coin = PlayerPrefs.GetInt("Coin",1000);
+        m_CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 1);
+        m_SoundState = PlayerPrefs.GetInt("SoundState", 1);
+        m_MusicState = PlayerPrefs.GetInt("MusicState", 1);
+        m_VibrateState = PlayerPrefs.GetInt("VibrateState", 1);
+        m_RemoveAds = PlayerPrefs.GetInt("RemoveAds", 0);
+        m_LosingVirginity = PlayerPrefs.GetInt("LosingVirginity", 1);
+        m_number_Size = PlayerPrefs.GetInt("NumberSize", 1);
+        m_number_Timer = PlayerPrefs.GetInt("NumberTimer", 1);
+        m_number_Power = PlayerPrefs.GetInt("NumberPower", 1);
 
-        m_SoundState = 1;
-        m_MusicState = 1;
-        m_VibrateState = 1;
-        m_RemoveAds = 0;
-        m_LosingVirginity = 1;
-
-        if(ES3.KeyExists("IdSkinCat"))
-            m_IdSkinCat = ES3.Load<int>("IdSkinCat");
-        if(ES3.KeyExists("Coin"))
-            m_coin = ES3.Load<int>("Coin");
-        if(ES3.KeyExists("CurrentLevel"))
-            m_CurrentLevel = ES3.Load<int>("CurrentLevel");
-        if(ES3.KeyExists("SoundState"))
-            m_SoundState = ES3.Load<int>("SoundState");
-        if(ES3.KeyExists("MusicState"))
-            m_MusicState = ES3.Load<int>("MusicState");
-        if(ES3.KeyExists("VibrateState"))
-            m_VibrateState = ES3.Load<int>("VibrateState");
-        if(ES3.KeyExists("RemoveAds"))
-            m_RemoveAds = ES3.Load<int>("RemoveAds");
-        if(ES3.KeyExists("RemoveAds"))
-            m_LosingVirginity = ES3.Load<int>("RemoveAds");
-
-        // m_LosingVirginity = PlayerPrefs.GetInt("LosingVirginity", 1);
+        #if UNITY_EDITOR
+            RemoveAds = 1;
+        #endif
     }
 }

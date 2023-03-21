@@ -14,7 +14,8 @@ public sealed class pfb_Home : UIBehavior
     }
 
     public void onClickBtnPlay(){
-
+        UIManager.Instance.pfb_GamePlay.ActivePopup(true);
+        Facade.Instance.MapController.OnCreateMap();
     }
 
     public void onClickBtnSettings(){

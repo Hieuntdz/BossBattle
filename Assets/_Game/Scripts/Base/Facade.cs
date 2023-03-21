@@ -11,6 +11,7 @@ public class Facade : MonoSingleton<Facade>
 {
     public PlayerData PlayerData;
     public GameManager GameManager;
+    public MapController MapController;
     protected override void Awake()
     {
         Application.targetFrameRate = 60;

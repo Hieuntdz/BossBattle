@@ -11,6 +11,8 @@ public class Boss : MonoBehaviour
 
 	public void LookAtPlayer()
 	{
+		if(player == null)
+			return;
 		Vector3 flipped = transform.localScale;
 		flipped.z *= -1f;
 
