@@ -1,4 +1,4 @@
-# gamerac_swordman
+# UnityTemplate
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.com/kasisrust/gamerac_swordman.git
+git remote add origin https://gitlab.com/kasisrust/unitytemplate.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.com/kasisrust/gamerac_swordman/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.com/kasisrust/unitytemplate/-/settings/integrations)
 
 ## Collaborate with your team
 
