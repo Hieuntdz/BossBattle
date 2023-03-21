@@ -632,7 +632,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundProcessor: {fileID: 541309632}
   BackgroundProcessor: {fileID: 740232777}
-  AudioClips: []
+  AudioClips:
+  - type: 0
+    clip: {fileID: 8300000, guid: 172564539a30232458a3629aad3d3d00, type: 3}
 --- !u!4 &1054694670
 Transform:
   m_ObjectHideFlags: 0
