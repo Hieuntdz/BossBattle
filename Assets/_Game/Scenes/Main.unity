@@ -3286,7 +3286,7 @@ MonoBehaviour:
   attackRange: 1.2
   attackMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!1 &3025974350074812420
 GameObject:
   m_ObjectHideFlags: 0
