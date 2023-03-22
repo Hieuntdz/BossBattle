@@ -76,6 +76,7 @@ public class pfb_Shop : UIBehavior
 
     public void OnPurchasedCoin(int coin){
         PlayerData.Instance.Coin += coin;
+        UIManager.Instance.pfb_Home.UpdateCoin();
     }
     #endregion
     private void Start() {
