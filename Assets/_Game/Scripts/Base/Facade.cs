@@ -12,6 +12,9 @@ public class Facade : MonoSingleton<Facade>
 {
     #region PRODUCT ID
     public static string m_skin01_pack = "m_skin01_pack";
+    public static string m_skin01_7day = "m_skin01_7day";
+    public static string m_skin01_1month = "m_skin01_1month";
+    public static string m_skin01_1year = "m_skin01_1year";
     public static string m_coin_100 = "m_coin_100";
     public static string m_coin_300 = "m_coin_300";
     public static string m_coin_500 = "m_coin_500";
