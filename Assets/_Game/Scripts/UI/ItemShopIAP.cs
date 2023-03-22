@@ -14,6 +14,7 @@ public class ItemShopIAP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CoinText.text = "" + CoinNumber;
         InitIAP();
         btnBuy.onClick.AddListener(OnBuy);
     }

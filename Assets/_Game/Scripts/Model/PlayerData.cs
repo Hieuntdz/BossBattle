@@ -158,7 +158,7 @@ public class PlayerData : MonoSingleton<PlayerData>
         if(!PlayerPrefs.HasKey("BundleVersion")){
             PlayerPrefs.SetString("BundleVersion", Application.version);
         }
-        m_coin = PlayerPrefs.GetInt("Coin",1000);
+        m_coin = PlayerPrefs.GetInt("Coin",0);
         m_CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 1);
         m_SoundState = PlayerPrefs.GetInt("SoundState", 1);
         m_MusicState = PlayerPrefs.GetInt("MusicState", 1);
