@@ -8,9 +8,11 @@ public class Bullet : MonoBehaviour {
 	public int damage = 40;
 	public Rigidbody2D rb;
 	public GameObject impactEffect;
+	public SpriteRenderer SpriteRenderer;
 
 	// Use this for initialization
 	void Start () {
+		SpriteRenderer.sprite = UIManager.Instance.pfb_Shop.GetSkinBullet(PlayerData.Instance.Skin_Equipped);
 		rb.velocity = transform.right * speed;
 	}
 

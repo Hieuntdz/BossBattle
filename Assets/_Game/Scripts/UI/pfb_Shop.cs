@@ -7,6 +7,7 @@ public class pfb_Shop : UIBehavior
 {
     public List<ItemSkinBullet> ListSkinBullet = new List<ItemSkinBullet>();
     public Button btnClose;
+    public List<Sprite> ListSpriteBullet = new List<Sprite>();
     private void Start() {
         btnClose.onClick.AddListener(OnClose);
     }
@@ -21,5 +22,9 @@ public class pfb_Shop : UIBehavior
 
     public void OnClose(){
         ActiveNormalPopup(false);
+    }
+
+    public Sprite GetSkinBullet(int id){
+        return ListSpriteBullet[id];
     }
 }

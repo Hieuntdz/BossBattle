@@ -2072,6 +2072,14 @@ MonoBehaviour:
   - {fileID: 5141512742948114388}
   - {fileID: 6850958887128146926}
   btnClose: {fileID: 660771199984393270}
+  ListSpriteBullet:
+  - {fileID: 21300000, guid: 2c961366528f28c458c619797d0bbb2f, type: 3}
+  - {fileID: 21300000, guid: 684b80f5e1639c24cb75e02fcf45f5d4, type: 3}
+  - {fileID: 21300000, guid: 17f650adc52121d48b51303ff714bbab, type: 3}
+  - {fileID: 21300000, guid: 419ce50889a02cf4fb5f6e40007ebbed, type: 3}
+  - {fileID: 21300000, guid: 85f4cf77b12826f4698b370fd0cc836c, type: 3}
+  - {fileID: 21300000, guid: 767f54d9183422540b706e518f75de05, type: 3}
+  - {fileID: 21300000, guid: 7d8320ac4835cc54bb2cde293a56d1bc, type: 3}
 --- !u!1 &7980970492929616860
 GameObject:
   m_ObjectHideFlags: 0
