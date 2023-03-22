@@ -33,8 +33,8 @@ MonoBehaviour:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - StompyRobot.SRF
-    - Sirenix.OdinInspector.CompatibilityLayer
     - Purchasing.Common
+    - Sirenix.OdinInspector.CompatibilityLayer
     - AssetUsageFinder
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     - StompyRobot.SRDebugger.Editor

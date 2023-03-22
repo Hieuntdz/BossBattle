@@ -46,7 +46,15 @@ public class Purchaser : MonoBehaviour ,IStoreListener
             InitializePurchasing();
         }
     }
+    // IEnumerator checkProduct(string prodid){
+    //     yield return new WaitForSeconds(3);
 
+    //     Product cproduct = m_StoreController.products.WithID(prodid);
+    //     if(cproduct != null && cproduct.hasReceipt){
+            
+    //         cproduct
+    //     }
+    // }
     public void InitializePurchasing()
     {
         // If we have already connected to Purchasing ...

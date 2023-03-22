@@ -6,40 +6,76 @@ public class ItemSkinBullet : MonoBehaviour
 {
     public int Id;
     public Button btnClick;
+    public int coin = 100;
     [SerializeField] private bool isUnlock = false;
     [SerializeField] private bool isEquipped = false;
     public Image Lock;
     public GameObject TextEquipped;
-    private void Start() {
+    private void Start()
+    {
         btnClick.onClick.AddListener(OnClick);
+        if (Id == 1)
+        {
+            IAPManager.Instance.OnPurchaseCompleted += (product) =>
+            {
+                if (product.definition.id == pfb_Shop.m_skin01_pack)
+                {
+                    // product is successfully purchased!
+                    UIManager.Instance.pfb_Shop.EarnPackSkin_01();
+                }
+            };
+        }
     }
-    public void updateUI(){
-        if(PlayerData.Instance.Skin_Equipped == Id)
+    public void updateUI()
+    {
+        if (PlayerData.Instance.Skin_Equipped == Id)
             isEquipped = true;
         else
             isEquipped = false;
-        if(GetDataSkinById() == 1){
+        if (GetDataSkinById() == 1)
+        {
             Lock.gameObject.SetActive(false);
-            if(isEquipped)
+            if (isEquipped)
                 TextEquipped.SetActive(true);
             else
                 TextEquipped.SetActive(false);
-        }else{
+        }
+        else
+        {
             Lock.gameObject.SetActive(true);
             TextEquipped.SetActive(false);
         }
     }
-    private void OnClick(){
-        if(GetDataSkinById() == 1){
+    private void OnClick()
+    {
+        if (GetDataSkinById() == 1)
+        {
             PlayerData.Instance.Skin_Equipped = Id;
             UIManager.Instance.pfb_Shop.UpdateAllItemSkinBullet();
-        }else{
-            //purchase
+        }
+        else
+        {
+            //purchase or buy with coin
+            //Kiểm tra nếu là skin số 01 thì purchase, còn lại check coin
+            if (Id == 1)
+                IAPManager.Instance.Purchase(pfb_Shop.m_skin01_pack, () => Time.timeScale = 1f );
+            else
+                OnBuy();
         }
     }
-
-    public int GetDataSkinById(){
-        switch (Id) {
+    public void OnBuy(){
+        if(PlayerData.Instance.Coin < this.coin){
+            //deo du tien
+        }else{  
+            PlayerData.Instance.Coin -= this.coin;
+            PlayerData.Instance.Skin_Equipped = Id;
+            UIManager.Instance.pfb_Shop.UpdateAllItemSkinBullet();
+        }
+    }
+    public int GetDataSkinById()
+    {
+        switch (Id)
+        {
             case 0:
                 return PlayerData.Instance.Unlock_Skin00;
             case 1:
@@ -54,12 +90,14 @@ public class ItemSkinBullet : MonoBehaviour
                 return PlayerData.Instance.Unlock_Skin05;
             case 6:
                 return PlayerData.Instance.Unlock_Skin06;
-            default :
+            default:
                 return PlayerData.Instance.Unlock_Skin01;
         }
     }
-    public void SetDataSkinById(int value){
-        switch (Id) {
+    public void SetDataSkinById(int value)
+    {
+        switch (Id)
+        {
             case 1:
                 PlayerData.Instance.Unlock_Skin01 = value;
                 break;
@@ -67,19 +105,19 @@ public class ItemSkinBullet : MonoBehaviour
                 PlayerData.Instance.Unlock_Skin00 = value;
                 break;
             case 2:
-                PlayerData.Instance.Unlock_Skin02 = value;break;
+                PlayerData.Instance.Unlock_Skin02 = value; break;
             case 3:
-                PlayerData.Instance.Unlock_Skin03 = value;break;
+                PlayerData.Instance.Unlock_Skin03 = value; break;
             case 4:
-                PlayerData.Instance.Unlock_Skin04 = value;break;
+                PlayerData.Instance.Unlock_Skin04 = value; break;
             case 5:
-                PlayerData.Instance.Unlock_Skin05 = value;break;
+                PlayerData.Instance.Unlock_Skin05 = value; break;
             case 6:
-                PlayerData.Instance.Unlock_Skin06 = value;break;
-            default :
-                
+                PlayerData.Instance.Unlock_Skin06 = value; break;
+            default:
+
                 break;
         }
     }
-    
+
 }
