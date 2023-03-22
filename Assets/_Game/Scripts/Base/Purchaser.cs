@@ -30,6 +30,7 @@ public class Purchaser : MonoBehaviour ,IStoreListener
 
     [HideInInspector]
     public string m1_remove_ad = "m1_remove_ad";
+    public string m1_skin01_pack = "m1_skin01_pack";
     // public string pack1 = "mine_creeper_pack_1";
 
     private void Awake()
