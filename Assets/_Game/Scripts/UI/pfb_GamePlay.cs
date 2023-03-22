@@ -20,7 +20,6 @@ public class pfb_GamePlay : UIBehavior
     {
         base.UpdateUI();
         LevelText.text = "Level " + PlayerData.Instance.CurrentLevel;
-        HealthBar.SetBossHealth(MapController.Instance.ListBoss[PlayerData.Instance.CurrentLevel - 1].GetComponent<BossHealth>());
     }
     private void OnClickLeft(){
 

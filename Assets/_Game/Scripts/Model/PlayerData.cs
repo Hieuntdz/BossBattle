@@ -11,9 +11,14 @@ public class PlayerData : MonoSingleton<PlayerData>
     private int m_VibrateState;
     private int m_RemoveAds;
     private int m_LosingVirginity;
-    private int m_number_Timer;
-    private int m_number_Size;
-    private int m_number_Power;
+    private int m_unlock_skin0;
+    private int m_unlock_skin1;
+    private int m_unlock_skin2;
+    private int m_unlock_skin3;
+    private int m_unlock_skin4;
+    private int m_unlock_skin5;
+    private int m_unlock_skin6;
+    private int m_skin_equipped;
     public int Coin{
         get{
             return this.m_coin;
@@ -21,6 +26,78 @@ public class PlayerData : MonoSingleton<PlayerData>
         set{
             this.m_coin = value;
             PlayerPrefs.SetInt("Coin", value);
+        }
+    }
+    public int Skin_Equipped{
+        get{
+            return this.m_skin_equipped;
+        }
+        set{
+            this.m_skin_equipped = value;
+            PlayerPrefs.SetInt("skin_equipped", value);
+        }
+    }
+    public int Unlock_Skin00{
+        get{
+            return this.m_unlock_skin0;
+        }
+        set{
+            this.m_unlock_skin0 = value;
+            PlayerPrefs.SetInt("Unlock_Skin00", value);
+        }
+    }
+    public int Unlock_Skin01{
+        get{
+            return this.m_unlock_skin1;
+        }
+        set{
+            this.m_unlock_skin1 = value;
+            PlayerPrefs.SetInt("Unlock_Skin01", value);
+        }
+    }
+    public int Unlock_Skin02{
+        get{
+            return this.m_unlock_skin2;
+        }
+        set{
+            this.m_unlock_skin2 = value;
+            PlayerPrefs.SetInt("Unlock_Skin02", value);
+        }
+    }
+    public int Unlock_Skin03{
+        get{
+            return this.m_unlock_skin3;
+        }
+        set{
+            this.m_unlock_skin3 = value;
+            PlayerPrefs.SetInt("Unlock_Skin03", value);
+        }
+    }
+    public int Unlock_Skin04{
+        get{
+            return this.m_unlock_skin4;
+        }
+        set{
+            this.m_unlock_skin4 = value;
+            PlayerPrefs.SetInt("Unlock_Skin04", value);
+        }
+    }
+    public int Unlock_Skin05{
+        get{
+            return this.m_unlock_skin5;
+        }
+        set{
+            this.m_unlock_skin5 = value;
+            PlayerPrefs.SetInt("Unlock_Skin05", value);
+        }
+    }
+    public int Unlock_Skin06{
+        get{
+            return this.m_unlock_skin6;
+        }
+        set{
+            this.m_unlock_skin6 = value;
+            PlayerPrefs.SetInt("Unlock_Skin06", value);
         }
     }
     public int CurrentLevel{
@@ -77,34 +154,7 @@ public class PlayerData : MonoSingleton<PlayerData>
             PlayerPrefs.SetInt("LosingVirginity", value);
         }
     }
-    public int NumberSize{
-        get{
-            return this.m_number_Size;
-        }
-        set{
-            this.m_number_Size = value;
-            PlayerPrefs.SetInt("NumberSize", value);
-        }
-    }
-    public int NumberTimer{
-        get{
-            return this.m_number_Timer;
-        }
-        set{
-            this.m_number_Timer = value;
-            PlayerPrefs.SetInt("NumberTimer", value);
-        }
-    }
-    public int NumberPower{
-        get{
-            return this.m_number_Power;
-        }
-        set{
-            this.m_number_Power = value;
-            PlayerPrefs.SetInt("NumberPower", value);
-        }
-    }
-    protected virtual void Awake(){
+    protected override void Awake(){
         if(!PlayerPrefs.HasKey("BundleVersion")){
             PlayerPrefs.SetString("BundleVersion", Application.version);
         }
@@ -115,9 +165,14 @@ public class PlayerData : MonoSingleton<PlayerData>
         m_VibrateState = PlayerPrefs.GetInt("VibrateState", 1);
         m_RemoveAds = PlayerPrefs.GetInt("RemoveAds", 0);
         m_LosingVirginity = PlayerPrefs.GetInt("LosingVirginity", 1);
-        m_number_Size = PlayerPrefs.GetInt("NumberSize", 1);
-        m_number_Timer = PlayerPrefs.GetInt("NumberTimer", 1);
-        m_number_Power = PlayerPrefs.GetInt("NumberPower", 1);
+        m_unlock_skin0 = PlayerPrefs.GetInt("Unlock_Skin00", 1);
+        m_unlock_skin1 = PlayerPrefs.GetInt("Unlock_Skin01", 0);
+        m_unlock_skin2 = PlayerPrefs.GetInt("Unlock_Skin02", 0);
+        m_unlock_skin3 = PlayerPrefs.GetInt("Unlock_Skin03", 0);
+        m_unlock_skin4 = PlayerPrefs.GetInt("Unlock_Skin04", 0);
+        m_unlock_skin5 = PlayerPrefs.GetInt("Unlock_Skin05", 0);
+        m_unlock_skin6 = PlayerPrefs.GetInt("Unlock_Skin06", 0);
+        m_skin_equipped = PlayerPrefs.GetInt("skin_equipped", 0);
 
         #if UNITY_EDITOR
             RemoveAds = 1;

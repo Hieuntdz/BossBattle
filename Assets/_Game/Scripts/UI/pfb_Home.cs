@@ -6,7 +6,6 @@ using TMPro;
 public sealed class pfb_Home : UIBehavior
 {
     [SerializeField] private Button btnPlay, btnSettings, btnShop;
-
     private void Start() {
         btnPlay.onClick.AddListener(onClickBtnPlay);
         btnSettings.onClick.AddListener(onClickBtnSettings);
@@ -21,6 +20,6 @@ public sealed class pfb_Home : UIBehavior
         UIManager.Instance.pfb_Settings.ActiveNormalPopup(true);
     }
     public void onClickBtnShop(){
-
+        UIManager.Instance.pfb_Shop.ActiveNormalPopup(true);
     }
 }

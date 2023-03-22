@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class pfb_Shop : UIBehavior
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<ItemSkinBullet> ListSkinBullet = new List<ItemSkinBullet>();
+    public Button btnClose;
+    private void Start() {
+        btnClose.onClick.AddListener(OnClose);
+    }
+    protected override void UpdateUI()
     {
-        
+        base.UpdateUI();
+        UpdateAllItemSkinBullet();
+    }
+    public void UpdateAllItemSkinBullet(){
+        ListSkinBullet.ForEach(x => x.updateUI());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void OnClose(){
+        ActiveNormalPopup(false);
     }
 }

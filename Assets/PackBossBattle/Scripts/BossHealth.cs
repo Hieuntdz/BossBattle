@@ -32,7 +32,9 @@ public class BossHealth : MonoBehaviour
 	void Die()
 	{
 		Instantiate(deathEffect, transform.position, Quaternion.identity);
-		Destroy(gameObject);
+		MapController.Instance.gameObject.SetActive(false);
+		UIManager.Instance.pfb_Result.EndGame("Win");
+		gameObject.SetActive(false);
 	}
 
 }

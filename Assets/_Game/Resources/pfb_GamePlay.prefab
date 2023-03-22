@@ -457,7 +457,7 @@ MonoBehaviour:
   btnRight: {fileID: 4931665357104766723}
   btnUp: {fileID: 2855100774643223818}
   btnAttack: {fileID: 4021827142410536268}
-  LevelText: {fileID: 0}
+  LevelText: {fileID: 5144137623624494187}
 --- !u!1 &2127800805282736608
 GameObject:
   m_ObjectHideFlags: 0

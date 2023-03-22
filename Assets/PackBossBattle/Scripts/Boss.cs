@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-
 	public Transform player;
 
 	public bool isFlipped = false;
