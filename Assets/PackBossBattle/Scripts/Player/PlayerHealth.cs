@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
         OnReset();
         UIManager.Instance.pfb_Result.EndGame("Lose");
     }
-    void OnReset()
+    public void OnReset()
     {
         health = 100;
         SpriteRenderer[] srs = GetComponentsInChildren<SpriteRenderer>();

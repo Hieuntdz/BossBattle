@@ -80,7 +80,9 @@ public class ItemSkinBullet : MonoBehaviour
             //deo du tien
         }else{  
             PlayerData.Instance.Coin -= this.coin;
+            SetDataSkinById(1);
             PlayerData.Instance.Skin_Equipped = Id;
+            UIManager.Instance.pfb_Home.UpdateCoin();
             UIManager.Instance.pfb_Shop.UpdateAllItemSkinBullet();
         }
     }

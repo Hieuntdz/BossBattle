@@ -10,6 +10,10 @@ public class pfb_GamePlay : UIBehavior
     public TextMeshProUGUI LevelText;
     private void Start() {
         btnBack.onClick.AddListener(OnClickBack);
+        btnLeft.onClick.AddListener(OnClickLeft);
+        btnRight.onClick.AddListener(OnClickRight);
+        btnUp.onClick.AddListener(OnClickUp);
+        btnAttack.onClick.AddListener(OnClickAttack);
     }
 
     private void OnClickBack(){
@@ -24,16 +28,21 @@ public class pfb_GamePlay : UIBehavior
     private void OnClickLeft(){
 
     }
-
+    public void OnLeft(){
+        PlayerMovement.dirMove = -1;
+    }
+    public void OnRight(){
+        PlayerMovement.dirMove = 1;
+    }
     private void OnClickRight(){
 
     }
 
     private void OnClickUp(){
-
+        MapController.Instance.PlayerMovement.Jump();
     }
 
     private void OnClickAttack(){
-        
+        MapController.Instance.PrefabWeapon.Shoot();
     }
 }

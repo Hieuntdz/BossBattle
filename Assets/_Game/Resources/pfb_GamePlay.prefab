@@ -712,6 +712,7 @@ GameObject:
   - component: {fileID: 4962908843599090033}
   - component: {fileID: 6441943659639078984}
   - component: {fileID: 2117037432765752656}
+  - component: {fileID: 6270380725570665893}
   m_Layer: 5
   m_Name: btnLeft
   m_TagString: Untagged
@@ -821,6 +822,34 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6270380725570665893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6798718300916687890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4ec13c5330a1249897e095c41a642d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeDelay: 0.1
+  onPressedOverSeconds:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1032794430355328422}
+        m_TargetAssemblyTypeName: pfb_GamePlay, Assembly-CSharp
+        m_MethodName: OnLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7034391758621115575
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +862,7 @@ GameObject:
   - component: {fileID: 8231189096185005459}
   - component: {fileID: 6936150985481354600}
   - component: {fileID: 4931665357104766723}
+  - component: {fileID: 7588986515154217289}
   m_Layer: 5
   m_Name: btnRight
   m_TagString: Untagged
@@ -942,6 +972,34 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7588986515154217289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7034391758621115575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4ec13c5330a1249897e095c41a642d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeDelay: 0.1
+  onPressedOverSeconds:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1032794430355328422}
+        m_TargetAssemblyTypeName: pfb_GamePlay, Assembly-CSharp
+        m_MethodName: OnRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7038272581988781087
 GameObject:
   m_ObjectHideFlags: 0

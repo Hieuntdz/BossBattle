@@ -190,8 +190,8 @@ public class IAPManager : IStoreListener
                 {
 #if !UNITY_EDITOR
 				//byte[] appleTangleData = AppleStoreKitTestTangle.Data(); // While testing with StoreKit Testing
-				byte[] appleTangleData = AppleTangle.Data();
-				purchaseValidator = new CrossPlatformValidator( GooglePlayTangle.Data(), appleTangleData, Application.identifier );
+				// byte[] appleTangleData = AppleTangle.Data();
+				// purchaseValidator = new CrossPlatformValidator( GooglePlayTangle.Data(), appleTangleData, Application.identifier );
 #endif
                     break;
                 }

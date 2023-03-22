@@ -15,7 +15,7 @@ public class pfb_Result : UIBehavior
     }
     public void EndGame(string type){
         ActivePopup(true);
-        if(type == "win"){
+        if(type == "Win"){
             ResultText.text = "Win";
             btnNextLevel.gameObject.SetActive(true);
             btnHome.gameObject.SetActive(true);

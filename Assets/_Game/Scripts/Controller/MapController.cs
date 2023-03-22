@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class MapController : MonoSingleton<MapController>
 {
-    public GameObject Player;
+    public PlayerHealth Player;
+    public PlayerMovement PlayerMovement;
+    public PrefabWeapon PrefabWeapon;
     public List<Boss> ListBoss = new List<Boss>();
     
     public void DisableAllObject(){
-        Player.SetActive(false);
+        Player.gameObject.SetActive(false);
         ListBoss.ForEach(x => x.gameObject.SetActive(false));
     }
     private void ActiveBossByLevel(){
@@ -30,6 +32,8 @@ public class MapController : MonoSingleton<MapController>
         this.gameObject.SetActive(true);
         DisableAllObject();
         ActiveBossByLevel();
-        Player.SetActive(true);
+        Player.OnReset();
+        Player.transform.position = new Vector3(-3.64f, -2.48f, 0);
+        Player.gameObject.SetActive(true);
     }
 }

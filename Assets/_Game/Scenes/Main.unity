@@ -2709,6 +2709,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 982058074}
+  PlayerMovement: {fileID: 982058077}
+  PrefabWeapon: {fileID: 982058075}
   ListBoss:
   - {fileID: 8002453062669975339}
   - {fileID: 1248356966274884825}
