@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class ItemSkinBullet : MonoBehaviour
 {
     public int Id;
     public Button btnClick;
     public int coin = 100;
-    [SerializeField] private bool isUnlock = false;
     [SerializeField] private bool isEquipped = false;
     public Image Lock;
-    public GameObject TextEquipped;
+    public GameObject TextEquipped, CoinIcon;
+    public TextMeshProUGUI CoinTxt;
     private void Start()
     {
         btnClick.onClick.AddListener(OnClick);
+        CoinTxt.text = "" + coin;
         if (Id == 1)
         {
             IAPManager.Instance.OnPurchaseCompleted += (product) =>
@@ -35,6 +37,8 @@ public class ItemSkinBullet : MonoBehaviour
         if (GetDataSkinById() == 1)
         {
             Lock.gameObject.SetActive(false);
+            CoinIcon.SetActive(false);
+            CoinTxt.gameObject.SetActive(false);
             if (isEquipped)
                 TextEquipped.SetActive(true);
             else
@@ -44,6 +48,14 @@ public class ItemSkinBullet : MonoBehaviour
         {
             Lock.gameObject.SetActive(true);
             TextEquipped.SetActive(false);
+            if(Id != 1){
+                CoinIcon.SetActive(true);
+                CoinTxt.gameObject.SetActive(true);
+            }else{
+                CoinIcon.SetActive(false);
+                CoinTxt.gameObject.SetActive(false);
+            }
+            
         }
     }
     private void OnClick()
@@ -72,6 +84,7 @@ public class ItemSkinBullet : MonoBehaviour
             UIManager.Instance.pfb_Shop.UpdateAllItemSkinBullet();
         }
     }
+    
     public int GetDataSkinById()
     {
         switch (Id)
