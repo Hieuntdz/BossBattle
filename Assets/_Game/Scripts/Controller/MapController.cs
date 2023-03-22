@@ -5,39 +5,37 @@ using UnityEngine;
 public class MapController : MonoSingleton<MapController>
 {
     public GameObject Player;
-    public GameObject Boss_01, Boss_02, Boss_03, Boss_04, Boss_05;
+    public List<Boss> ListBoss = new List<Boss>();
     
     public void DisableAllObject(){
-        Boss_01.SetActive(false);
-        Boss_02.SetActive(false);
-        Boss_03.SetActive(false);
-        Boss_04.SetActive(false);
-        Boss_05.SetActive(false);
+        ListBoss.ForEach(x => x.gameObject.SetActive(false));
     }
     private void ActiveBossByLevel(){
         switch (Facade.Instance.PlayerData.CurrentLevel) {
             case 1:
-                Boss_01.SetActive(true);
-                Boss_01.transform.position = new Vector3(2.65f, -3.14f,0);
+                ListBoss[0].gameObject.SetActive(true);
+                ListBoss[0].transform.position = new Vector3(4.2f, -4.02f,0);
                 break;
             case 2:
-                Boss_02.SetActive(true);
-                Boss_02.transform.position = new Vector3(2.65f, -3.14f,0);
+                ListBoss[1].gameObject.SetActive(true);
+                ListBoss[1].transform.position = new Vector3(4.2f, -4.02f,0);
                 break;
             case 3:
-                Boss_03.SetActive(true);
-                Boss_03.transform.position = new Vector3(2.65f, -3.14f,0);
+                ListBoss[2].gameObject.SetActive(true);
+                ListBoss[2].transform.position = new Vector3(4.2f, -4.02f,0);
                 break;
             case 4:
-                Boss_04.SetActive(true);
-                Boss_04.transform.position = new Vector3(2.65f, -3.14f,0);
+                ListBoss[3].gameObject.SetActive(true);
+                ListBoss[3].transform.position = new Vector3(4.2f, -4.02f,0);
                 break;
             case 5:
-                Boss_05.SetActive(true);
-                Boss_05.transform.position = new Vector3(2.65f, -3.14f,0);
+                ListBoss[4].gameObject.SetActive(true);
+                ListBoss[4].transform.position = new Vector3(4.2f, -4.02f,0);
                 break;
             default :
-                
+                var random = UnityEngine.Random.Range(0, ListBoss.Count);
+                ListBoss[random].gameObject.SetActive(true);
+                ListBoss[random].transform.position = new Vector3(4.2f, -4.02f,0);
                 break;
         }
     }
