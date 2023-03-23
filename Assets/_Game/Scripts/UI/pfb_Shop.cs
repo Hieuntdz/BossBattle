@@ -6,8 +6,20 @@ using UnityEngine.Purchasing;
 public class pfb_Shop : UIBehavior
 {
     public List<ItemSkinBullet> ListSkinBullet = new List<ItemSkinBullet>();
-    public Button btnClose;
+    public Button btnClose, btnClose2;
     public List<Sprite> ListSpriteBullet = new List<Sprite>();
+    public PopupBuySkin01 PopupBuySkin01;
+    public GameObject PopupBuy;
+    public void EnablePopupSkin01(bool b)
+    {
+        PopupBuySkin01.gameObject.SetActive(b);
+        PopupBuy.gameObject.SetActive(!b);
+    }
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        EnablePopupSkin01(false);
+    }
     public static string GetProductId(string id)
     {
         switch (id)
@@ -32,6 +44,12 @@ public class pfb_Shop : UIBehavior
                 return Facade.m_coin_8000;
             case "coin_10000":
                 return Facade.m_coin_10000;
+            case "day_7":
+                return Facade.m_skin01_7day;
+            case "day_30":
+                return Facade.m_skin01_1month;
+            case "day_365":
+                return Facade.m_skin01_1year;
             default:
                 return Facade.m_coin_100;
         }
@@ -48,6 +66,7 @@ public class pfb_Shop : UIBehavior
     private void Start()
     {
         btnClose.onClick.AddListener(OnClose);
+        btnClose2.onClick.AddListener(OnClose);
     }
     protected override void UpdateUI()
     {

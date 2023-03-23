@@ -16,17 +16,6 @@ public class ItemSkinBullet : MonoBehaviour
     {
         btnClick.onClick.AddListener(OnClick);
         CoinTxt.text = "" + coin;
-        if (Id == 1)
-        {
-            IAPManager.Instance.OnPurchaseCompleted += (product) =>
-            {
-                if (product.definition.id == Facade.m_skin01_pack)
-                {
-                    // product is successfully purchased!
-                    UIManager.Instance.pfb_Shop.EarnPackSkin_01();
-                }
-            };
-        }
     }
     public void updateUI()
     {
@@ -70,7 +59,8 @@ public class ItemSkinBullet : MonoBehaviour
             //purchase or buy with coin
             //Kiểm tra nếu là skin số 01 thì purchase, còn lại check coin
             if (Id == 1)
-                IAPManager.Instance.Purchase(Facade.m_skin01_pack, () => Time.timeScale = 1f );
+                // IAPManager.Instance.Purchase(Facade.m_skin01_pack, () => Time.timeScale = 1f );
+                UIManager.Instance.pfb_Shop.EnablePopupSkin01(true);
             else
                 OnBuy();
         }

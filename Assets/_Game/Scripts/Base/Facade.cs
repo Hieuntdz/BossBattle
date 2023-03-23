@@ -11,7 +11,6 @@ using UnityEngine.Purchasing;
 public class Facade : MonoSingleton<Facade>
 {
     #region PRODUCT ID
-    public static string m_skin01_pack = "m_skin01_pack";
     public static string m_skin01_7day = "m_skin01_7day";
     public static string m_skin01_1month = "m_skin01_1month";
     public static string m_skin01_1year = "m_skin01_1year";
@@ -39,7 +38,17 @@ public class Facade : MonoSingleton<Facade>
 
         IAPManager.Instance.OnInitialized += (success) =>
         {
-            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_pack))
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_7day))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin01 = 1;
+            }
+            else if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_1month))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin01 = 1;
+            }
+            else if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_1year))
             {
                 //product was purchased in a previous session
                 PlayerData.Instance.Unlock_Skin01 = 1;
@@ -74,7 +83,10 @@ public class Facade : MonoSingleton<Facade>
                 else if (product.definition.id == m_coin_10000)
                     OnPurchasedCoin(10000);
             };
-        IAPManager.Instance.Initialize(new ProductDefinition(m_skin01_pack, ProductType.Subscription),
+        IAPManager.Instance.Initialize(
+        new ProductDefinition(m_skin01_7day, ProductType.Subscription),
+        new ProductDefinition(m_skin01_1month, ProductType.Subscription),
+        new ProductDefinition(m_skin01_1year, ProductType.Subscription),
         new ProductDefinition(m_coin_100, ProductType.Consumable),
         new ProductDefinition(m_coin_300, ProductType.Consumable),
         new ProductDefinition(m_coin_500, ProductType.Consumable),
