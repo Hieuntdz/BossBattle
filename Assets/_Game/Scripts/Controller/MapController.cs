@@ -23,12 +23,14 @@ public class MapController : MonoSingleton<MapController>
             var random = UnityEngine.Random.Range(0, ListBoss.Count);
             ListBoss[random].gameObject.SetActive(true);
             ListBoss[random].transform.position = new Vector3(4.2f, -4.02f,0);
-            ListBoss[random].GetComponent<BossHealth>().health = 500 + 100 * PlayerData.Instance.CurrentLevel;
+            var BH = ListBoss[random].GetComponent<BossHealth>();
+            BH.health = BH.baseHealth + 100 * PlayerData.Instance.CurrentLevel;
             UIManager.Instance.pfb_GamePlay.HealthBar.SetBossHealth(ListBoss[random].GetComponent<BossHealth>());
         }else{
             ListBoss[Facade.Instance.PlayerData.CurrentLevel-1].gameObject.SetActive(true);
             ListBoss[Facade.Instance.PlayerData.CurrentLevel-1].transform.position = new Vector3(4.2f, -4.02f,0);
-            ListBoss[Facade.Instance.PlayerData.CurrentLevel-1].GetComponent<BossHealth>().health = 500 + 100 * PlayerData.Instance.CurrentLevel;
+            var BH = ListBoss[Facade.Instance.PlayerData.CurrentLevel - 1].GetComponent<BossHealth>();
+            BH.health = BH.baseHealth + 100 * PlayerData.Instance.CurrentLevel;
             UIManager.Instance.pfb_GamePlay.HealthBar.SetBossHealth(ListBoss[Facade.Instance.PlayerData.CurrentLevel-1].GetComponent<BossHealth>());
         }
     }

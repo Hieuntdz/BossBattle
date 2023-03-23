@@ -33,6 +33,16 @@ public class Purchaser : MonoBehaviour ,IStoreListener
     public string m1_skin01_pack = "m1_skin01_pack";
     // public string pack1 = "mine_creeper_pack_1";
 
+    public void OnInitializeFailed(InitializationFailureReason error)
+    {
+
+    }
+
+    public void OnInitializeFailed(InitializationFailureReason error, string? message)
+    {
+
+    }
+
     private void Awake()
     {
         instance = this;
@@ -46,12 +56,13 @@ public class Purchaser : MonoBehaviour ,IStoreListener
             InitializePurchasing();
         }
     }
+
     // IEnumerator checkProduct(string prodid){
     //     yield return new WaitForSeconds(3);
 
     //     Product cproduct = m_StoreController.products.WithID(prodid);
     //     if(cproduct != null && cproduct.hasReceipt){
-            
+
     //         cproduct
     //     }
     // }
@@ -181,11 +192,7 @@ public class Purchaser : MonoBehaviour ,IStoreListener
         // Store specific subsystem, for accessing device-specific store features.
         m_StoreExtensionProvider = extensions;
     }
-    public void OnInitializeFailed(InitializationFailureReason error)
-    {
-        // Purchasing set-up has not succeeded. Check error for reason. Consider sharing this reason with the user.
-        Debug.Log("OnInitializeFailed InitializationFailureReason:" + error);
-    }
+
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
         // A consumable product has been purchased by this user.

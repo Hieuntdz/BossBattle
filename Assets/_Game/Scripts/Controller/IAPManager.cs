@@ -6,6 +6,16 @@ using UnityEngine.Purchasing.Security;
 
 public class IAPManager : IStoreListener
 {
+
+    public void OnInitializeFailed(InitializationFailureReason error)
+    {
+
+    }
+
+    public void OnInitializeFailed(InitializationFailureReason error, string? message)
+    {
+
+    }
     public enum State { PendingInitialize, Initializing, SuccessfullyInitialized, FailedToInitialize };
 
     private static IAPManager m_instance = null;
