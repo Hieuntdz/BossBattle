@@ -6,6 +6,7 @@ using TMPro;
 public class pfb_GamePlay : UIBehavior
 {
     public HealthBar HealthBar;
+    public PlayerHealthBarController PlayerHealthBarController;
     public Button btnBack, btnLeft, btnRight, btnUp, btnAttack;
     public TextMeshProUGUI LevelText;
     private void Start() {

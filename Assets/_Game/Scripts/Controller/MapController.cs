@@ -8,7 +8,11 @@ public class MapController : MonoSingleton<MapController>
     public PlayerMovement PlayerMovement;
     public PrefabWeapon PrefabWeapon;
     public List<Boss> ListBoss = new List<Boss>();
-    
+    protected override void Awake()
+    {
+        base.Awake();
+        gameObject.SetActive(false);
+    }
     public void DisableAllObject(){
         Player.gameObject.SetActive(false);
         ListBoss.ForEach(x => x.gameObject.SetActive(false));
@@ -35,5 +39,6 @@ public class MapController : MonoSingleton<MapController>
         Player.OnReset();
         Player.transform.position = new Vector3(-3.64f, -2.48f, 0);
         Player.gameObject.SetActive(true);
+        UIManager.Instance.pfb_GamePlay.PlayerHealthBarController.DoAnimHealth();
     }
 }
