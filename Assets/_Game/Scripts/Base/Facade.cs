@@ -38,6 +38,42 @@ public class Facade : MonoSingleton<Facade>
 
         IAPManager.Instance.OnInitialized += (success) =>
         {
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_7day))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin01 = 1;
+            }
+            else
+            {
+                PlayerData.Instance.Unlock_Skin01 = 0;
+                if (PlayerData.Instance.Skin_Equipped == 1)
+                    PlayerData.Instance.Skin_Equipped = 0;
+            }
+
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_1month))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin07 = 1;
+            }
+            else
+            {
+                PlayerData.Instance.Unlock_Skin07 = 0;
+                if (PlayerData.Instance.Skin_Equipped == 1)
+                    PlayerData.Instance.Skin_Equipped = 0;
+            }
+            
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_1year))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin08 = 1;
+            }
+            else
+            {
+                PlayerData.Instance.Unlock_Skin08 = 0;
+                if (PlayerData.Instance.Skin_Equipped == 1)
+                    PlayerData.Instance.Skin_Equipped = 0;
+            }
+        };
         IAPManager.Instance.OnPurchaseCompleted += (product) =>
             {
                 if (product.definition.id == m_coin_100)
@@ -76,43 +112,6 @@ public class Facade : MonoSingleton<Facade>
         new ProductDefinition(m_coin_8000, ProductType.Consumable),
         new ProductDefinition(m_coin_10000, ProductType.Consumable)
         );
-
-        if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_7day))
-            {
-                //product was purchased in a previous session
-                PlayerData.Instance.Unlock_Skin01 = 1;
-            }
-            else
-            {
-                PlayerData.Instance.Unlock_Skin01 = 0;
-                if (PlayerData.Instance.Skin_Equipped == 1)
-                    PlayerData.Instance.Skin_Equipped = 0;
-            }
-
-            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_1month))
-            {
-                //product was purchased in a previous session
-                PlayerData.Instance.Unlock_Skin07 = 1;
-            }
-            else
-            {
-                PlayerData.Instance.Unlock_Skin07 = 0;
-                if (PlayerData.Instance.Skin_Equipped == 1)
-                    PlayerData.Instance.Skin_Equipped = 0;
-            }
-            
-            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_1year))
-            {
-                //product was purchased in a previous session
-                PlayerData.Instance.Unlock_Skin08 = 1;
-            }
-            else
-            {
-                PlayerData.Instance.Unlock_Skin08 = 0;
-                if (PlayerData.Instance.Skin_Equipped == 1)
-                    PlayerData.Instance.Skin_Equipped = 0;
-            }
-        };
     }
     public void OnPurchasedCoin(int coin)
     {
