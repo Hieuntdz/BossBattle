@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
-public class PopupBuySkin01 : MonoBehaviour
+public class PopupBuySkin07 : MonoBehaviour
 {
     public Button btnBuy7Day, btnBuy1Month, btnBuy1Year;
     public TextMeshProUGUI txt7day, txt1month, txt1year;
@@ -13,12 +13,11 @@ public class PopupBuySkin01 : MonoBehaviour
     {
         IAPManager.Instance.OnPurchaseCompleted += (product) =>
             {
-                if (product.definition.id == Facade.m_skin01_7day
-                )
+                if (product.definition.id == Facade.m_skin01_1month)
                 {
                     // product is successfully purchased!
-                    UIManager.Instance.pfb_Shop.EarnPackSkin_01();
-                    UIManager.Instance.pfb_Shop.EnablePopupSkin01(false);
+                    UIManager.Instance.pfb_Shop.EarnPackSkin_07();
+                    UIManager.Instance.pfb_Shop.EnablePopupSkin07(false);
                 }
             };
         

@@ -18,6 +18,8 @@ public class PlayerData : MonoSingleton<PlayerData>
     private int m_unlock_skin4;
     private int m_unlock_skin5;
     private int m_unlock_skin6;
+    private int m_unlock_skin7;
+    private int m_unlock_skin8;
     private int m_skin_equipped;
     public int Coin{
         get{
@@ -100,6 +102,24 @@ public class PlayerData : MonoSingleton<PlayerData>
             PlayerPrefs.SetInt("Unlock_Skin06", value);
         }
     }
+    public int Unlock_Skin07{
+        get{
+            return this.m_unlock_skin7;
+        }
+        set{
+            this.m_unlock_skin7 = value;
+            PlayerPrefs.SetInt("Unlock_Skin07", value);
+        }
+    }
+    public int Unlock_Skin08{
+        get{
+            return this.m_unlock_skin8;
+        }
+        set{
+            this.m_unlock_skin8 = value;
+            PlayerPrefs.SetInt("Unlock_Skin08", value);
+        }
+    }
     public int CurrentLevel{
         get{
             return this.m_CurrentLevel;
@@ -172,6 +192,8 @@ public class PlayerData : MonoSingleton<PlayerData>
         m_unlock_skin4 = PlayerPrefs.GetInt("Unlock_Skin04", 0);
         m_unlock_skin5 = PlayerPrefs.GetInt("Unlock_Skin05", 0);
         m_unlock_skin6 = PlayerPrefs.GetInt("Unlock_Skin06", 0);
+        m_unlock_skin7 = PlayerPrefs.GetInt("Unlock_Skin07", 0);
+        m_unlock_skin8 = PlayerPrefs.GetInt("Unlock_Skin08", 0);
         m_skin_equipped = PlayerPrefs.GetInt("skin_equipped", 0);
 
         #if UNITY_EDITOR

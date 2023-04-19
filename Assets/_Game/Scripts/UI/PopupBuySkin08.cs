@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
-public class PopupBuySkin01 : MonoBehaviour
+public class PopupBuySkin08 : MonoBehaviour
 {
     public Button btnBuy7Day, btnBuy1Month, btnBuy1Year;
     public TextMeshProUGUI txt7day, txt1month, txt1year;
@@ -13,17 +13,18 @@ public class PopupBuySkin01 : MonoBehaviour
     {
         IAPManager.Instance.OnPurchaseCompleted += (product) =>
             {
-                if (product.definition.id == Facade.m_skin01_7day
+                if (
+                product.definition.id == Facade.m_skin01_1year
                 )
                 {
                     // product is successfully purchased!
-                    UIManager.Instance.pfb_Shop.EarnPackSkin_01();
-                    UIManager.Instance.pfb_Shop.EnablePopupSkin01(false);
+                    UIManager.Instance.pfb_Shop.EarnPackSkin_08();
+                    UIManager.Instance.pfb_Shop.EnablePopupSkin08(false);
                 }
             };
         
-        btnBuy7Day.onClick.AddListener(OnBuy7Day);
-        btnBuy1Month.onClick.AddListener(OnBuy1Month);
+        // btnBuy7Day.onClick.AddListener(OnBuy7Day);
+        // btnBuy1Month.onClick.AddListener(OnBuy1Month);
         btnBuy1Year.onClick.AddListener(OnBuy1Year);
         InitIAP();
     }
@@ -43,16 +44,6 @@ public class PopupBuySkin01 : MonoBehaviour
             btnBuy1Year.interactable = false;
         }
     }
-    void OnBuy7Day()
-    {
-        IAPManager.Instance.Purchase(Facade.m_skin01_7day, () => Time.timeScale = 1f );
-    }
-
-    void OnBuy1Month()
-    {
-        IAPManager.Instance.Purchase(Facade.m_skin01_1month, () => Time.timeScale = 1f );
-    }
-
     void OnBuy1Year()
     {
         IAPManager.Instance.Purchase(Facade.m_skin01_1year, () => Time.timeScale = 1f );

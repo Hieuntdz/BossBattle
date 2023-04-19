@@ -6,13 +6,25 @@ using UnityEngine.Purchasing;
 public class pfb_Shop : UIBehavior
 {
     public List<ItemSkinBullet> ListSkinBullet = new List<ItemSkinBullet>();
-    public Button btnClose, btnClose2;
+    public Button btnClose, btnClose2, btnClose3, btnClose4;
     public List<Sprite> ListSpriteBullet = new List<Sprite>();
     public PopupBuySkin01 PopupBuySkin01;
+    public PopupBuySkin07 PopupBuySkin07;
+    public PopupBuySkin08 PopupBuySkin08;
     public GameObject PopupBuy;
     public void EnablePopupSkin01(bool b)
     {
         PopupBuySkin01.gameObject.SetActive(b);
+        PopupBuy.gameObject.SetActive(!b);
+    }
+    public void EnablePopupSkin07(bool b)
+    {
+        PopupBuySkin07.gameObject.SetActive(b);
+        PopupBuy.gameObject.SetActive(!b);
+    }
+    public void EnablePopupSkin08(bool b)
+    {
+        PopupBuySkin08.gameObject.SetActive(b);
         PopupBuy.gameObject.SetActive(!b);
     }
     protected override void OnEnable()
@@ -62,11 +74,25 @@ public class pfb_Shop : UIBehavior
         PlayerData.Instance.Skin_Equipped = 1;
         UIManager.Instance.pfb_Shop.UpdateAllItemSkinBullet();
     }
+    public void EarnPackSkin_07()
+    {
+        PlayerData.Instance.Unlock_Skin07 = 1;
+        PlayerData.Instance.Skin_Equipped = 7;
+        UIManager.Instance.pfb_Shop.UpdateAllItemSkinBullet();
+    }
+    public void EarnPackSkin_08()
+    {
+        PlayerData.Instance.Unlock_Skin08 = 1;
+        PlayerData.Instance.Skin_Equipped = 8;
+        UIManager.Instance.pfb_Shop.UpdateAllItemSkinBullet();
+    }
     #endregion
     private void Start()
     {
         btnClose.onClick.AddListener(OnClose);
         btnClose2.onClick.AddListener(OnClose);
+        btnClose3.onClick.AddListener(OnClose);
+        btnClose4.onClick.AddListener(OnClose);
     }
     protected override void UpdateUI()
     {
@@ -81,6 +107,9 @@ public class pfb_Shop : UIBehavior
     public void OnClose()
     {
         ActiveNormalPopup(false);
+        PopupBuySkin01.gameObject.SetActive(false);
+        PopupBuySkin07.gameObject.SetActive(false);
+        PopupBuySkin08.gameObject.SetActive(false);
     }
 
     public Sprite GetSkinBullet(int id)

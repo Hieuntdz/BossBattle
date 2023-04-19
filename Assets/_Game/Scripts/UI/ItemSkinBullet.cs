@@ -37,10 +37,11 @@ public class ItemSkinBullet : MonoBehaviour
         {
             Lock.gameObject.SetActive(true);
             TextEquipped.SetActive(false);
-            if(Id != 1){
+
                 CoinIcon.SetActive(true);
                 CoinTxt.gameObject.SetActive(true);
-            }else{
+
+            if(Id == 1 || Id == 7 || Id == 8){
                 CoinIcon.SetActive(false);
                 CoinTxt.gameObject.SetActive(false);
             }
@@ -61,6 +62,10 @@ public class ItemSkinBullet : MonoBehaviour
             if (Id == 1)
                 // IAPManager.Instance.Purchase(Facade.m_skin01_pack, () => Time.timeScale = 1f );
                 UIManager.Instance.pfb_Shop.EnablePopupSkin01(true);
+            else if (Id == 7)
+                UIManager.Instance.pfb_Shop.EnablePopupSkin07(true);
+            else if (Id == 8)
+                UIManager.Instance.pfb_Shop.EnablePopupSkin08(true);
             else
                 OnBuy();
         }
@@ -95,6 +100,10 @@ public class ItemSkinBullet : MonoBehaviour
                 return PlayerData.Instance.Unlock_Skin05;
             case 6:
                 return PlayerData.Instance.Unlock_Skin06;
+            case 7:
+                return PlayerData.Instance.Unlock_Skin07;
+            case 8:
+                return PlayerData.Instance.Unlock_Skin08;
             default:
                 return PlayerData.Instance.Unlock_Skin01;
         }
@@ -119,6 +128,10 @@ public class ItemSkinBullet : MonoBehaviour
                 PlayerData.Instance.Unlock_Skin05 = value; break;
             case 6:
                 PlayerData.Instance.Unlock_Skin06 = value; break;
+            case 7:
+                PlayerData.Instance.Unlock_Skin07 = value; break;
+            case 8:
+                PlayerData.Instance.Unlock_Skin08 = value; break;
             default:
 
                 break;
