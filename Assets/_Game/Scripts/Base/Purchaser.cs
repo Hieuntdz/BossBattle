@@ -186,6 +186,9 @@ public class Purchaser : MonoBehaviour ,IStoreListener
         // Purchasing set-up has not succeeded. Check error for reason. Consider sharing this reason with the user.
         Debug.Log("OnInitializeFailed InitializationFailureReason:" + error);
     }
+    public void OnInitializeFailed(InitializationFailureReason error, string message){
+
+    }
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
         // A consumable product has been purchased by this user.
