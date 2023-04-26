@@ -45,6 +45,10 @@ public class ItemSkinBullet : MonoBehaviour
                 CoinIcon.SetActive(false);
                 CoinTxt.gameObject.SetActive(false);
             }
+            if(Id >= 9 || Id <= 17){
+                CoinIcon.SetActive(false);
+                CoinTxt.gameObject.SetActive(false);
+            }
             
         }
     }
@@ -66,6 +70,8 @@ public class ItemSkinBullet : MonoBehaviour
                 UIManager.Instance.pfb_Shop.EnablePopupSkin07(true);
             else if (Id == 8)
                 UIManager.Instance.pfb_Shop.EnablePopupSkin08(true);
+            else if (Id >= 9 && Id <= 17)
+                UIManager.Instance.pfb_Shop.EnablePopupSkin(true, Id);
             else
                 OnBuy();
         }
@@ -104,6 +110,24 @@ public class ItemSkinBullet : MonoBehaviour
                 return PlayerData.Instance.Unlock_Skin07;
             case 8:
                 return PlayerData.Instance.Unlock_Skin08;
+            case 9:
+                return PlayerData.Instance.Unlock_Skin09;
+            case 10:
+                return PlayerData.Instance.Unlock_Skin10;
+            case 11:
+                return PlayerData.Instance.Unlock_Skin11;
+            case 12:
+                return PlayerData.Instance.Unlock_Skin12;
+            case 13:
+                return PlayerData.Instance.Unlock_Skin13;
+            case 14:
+                return PlayerData.Instance.Unlock_Skin14;
+            case 15:
+                return PlayerData.Instance.Unlock_Skin15;
+            case 16:
+                return PlayerData.Instance.Unlock_Skin16;
+            case 17:
+                return PlayerData.Instance.Unlock_Skin17;
             default:
                 return PlayerData.Instance.Unlock_Skin01;
         }
@@ -132,6 +156,24 @@ public class ItemSkinBullet : MonoBehaviour
                 PlayerData.Instance.Unlock_Skin07 = value; break;
             case 8:
                 PlayerData.Instance.Unlock_Skin08 = value; break;
+            case 9:
+                PlayerData.Instance.Unlock_Skin09 = value; break;
+            case 10:
+                PlayerData.Instance.Unlock_Skin10 = value; break;
+            case 11:
+                PlayerData.Instance.Unlock_Skin11 = value; break;
+            case 12:
+                PlayerData.Instance.Unlock_Skin12 = value; break;
+            case 13:
+                PlayerData.Instance.Unlock_Skin13 = value; break;
+            case 14:
+                PlayerData.Instance.Unlock_Skin14 = value; break;
+            case 15:
+                PlayerData.Instance.Unlock_Skin15 = value; break;
+            case 16:
+                PlayerData.Instance.Unlock_Skin16 = value; break;
+            case 17:
+                PlayerData.Instance.Unlock_Skin17 = value; break;
             default:
 
                 break;
