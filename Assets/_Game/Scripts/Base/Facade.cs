@@ -14,6 +14,20 @@ public class Facade : MonoSingleton<Facade>
     public static string m_skin01_7day = "m_skin01_7day";
     public static string m_skin01_1month = "m_skin01_1month";
     public static string m_skin01_1year = "m_skin01_1year";
+
+    public static string m_skin02_7days_1 = "m_skin02_7days_1";
+    public static string m_skin02_7days_2 = "m_skin02_7days_2";
+    public static string m_skin02_7days_3 = "m_skin02_7days_3";
+    public static string m_skin02_7days_4 = "m_skin02_7days_4";
+    public static string m_skin02_7days_5 = "m_skin02_7days_5";
+    public static string m_skin02_7days_6 = "m_skin02_7days_6";
+
+    public static string m_skin01_4week = "m_skin01_4week";
+    public static string m_skin01_3month = "m_skin01_3month";
+    public static string m_skin01_6month = "m_skin01_6month";
+
+
+
     public static string m_coin_100 = "m_coin_100";
     public static string m_coin_300 = "m_coin_300";
     public static string m_coin_500 = "m_coin_500";
@@ -73,6 +87,107 @@ public class Facade : MonoSingleton<Facade>
                 if (PlayerData.Instance.Skin_Equipped == 1)
                     PlayerData.Instance.Skin_Equipped = 0;
             }
+
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin02_7days_1))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin09 = 1;
+            }
+            else
+            {
+                PlayerData.Instance.Unlock_Skin09 = 0;
+                if (PlayerData.Instance.Skin_Equipped == 1)
+                    PlayerData.Instance.Skin_Equipped = 0;
+            }
+
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin02_7days_2))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin10 = 1;
+            }
+            else
+            {
+                PlayerData.Instance.Unlock_Skin10 = 0;
+                if (PlayerData.Instance.Skin_Equipped == 1)
+                    PlayerData.Instance.Skin_Equipped = 0;
+            }
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin02_7days_3))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin11 = 1;
+            }
+            else
+            {
+                PlayerData.Instance.Unlock_Skin11 = 0;
+                if (PlayerData.Instance.Skin_Equipped == 1)
+                    PlayerData.Instance.Skin_Equipped = 0;
+            }
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin02_7days_4))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin12 = 1;
+            }
+            else
+            {
+                PlayerData.Instance.Unlock_Skin12 = 0;
+                if (PlayerData.Instance.Skin_Equipped == 1)
+                    PlayerData.Instance.Skin_Equipped = 0;
+            }
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin02_7days_5))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin13 = 1;
+            }
+            else
+            {
+                PlayerData.Instance.Unlock_Skin13 = 0;
+                if (PlayerData.Instance.Skin_Equipped == 1)
+                    PlayerData.Instance.Skin_Equipped = 0;
+            }
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin02_7days_6))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin14 = 1;
+            }
+            else
+            {
+                PlayerData.Instance.Unlock_Skin14 = 0;
+                if (PlayerData.Instance.Skin_Equipped == 1)
+                    PlayerData.Instance.Skin_Equipped = 0;
+            }
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_4week))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin15 = 1;
+            }
+            else
+            {
+                PlayerData.Instance.Unlock_Skin15 = 0;
+                if (PlayerData.Instance.Skin_Equipped == 1)
+                    PlayerData.Instance.Skin_Equipped = 0;
+            }
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_3month))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin16 = 1;
+            }
+            else
+            {
+                PlayerData.Instance.Unlock_Skin16 = 0;
+                if (PlayerData.Instance.Skin_Equipped == 1)
+                    PlayerData.Instance.Skin_Equipped = 0;
+            }
+            if (success && IAPManager.Instance.IsNonConsumablePurchased(m_skin01_6month))
+            {
+                //product was purchased in a previous session
+                PlayerData.Instance.Unlock_Skin17 = 1;
+            }
+            else
+            {
+                PlayerData.Instance.Unlock_Skin17 = 0;
+                if (PlayerData.Instance.Skin_Equipped == 1)
+                    PlayerData.Instance.Skin_Equipped = 0;
+            }
         };
         IAPManager.Instance.OnPurchaseCompleted += (product) =>
             {
@@ -101,6 +216,17 @@ public class Facade : MonoSingleton<Facade>
         new ProductDefinition(m_skin01_7day, ProductType.Subscription),
         new ProductDefinition(m_skin01_1month, ProductType.Subscription),
         new ProductDefinition(m_skin01_1year, ProductType.Subscription),
+
+        new ProductDefinition(m_skin02_7days_1, ProductType.Subscription),
+        new ProductDefinition(m_skin02_7days_2, ProductType.Subscription),
+        new ProductDefinition(m_skin02_7days_3, ProductType.Subscription),
+        new ProductDefinition(m_skin02_7days_4, ProductType.Subscription),
+        new ProductDefinition(m_skin02_7days_5, ProductType.Subscription),
+        new ProductDefinition(m_skin02_7days_6, ProductType.Subscription),
+        new ProductDefinition(m_skin01_4week, ProductType.Subscription),
+        new ProductDefinition(m_skin01_3month, ProductType.Subscription),
+        new ProductDefinition(m_skin01_6month, ProductType.Subscription),
+
         new ProductDefinition(m_coin_100, ProductType.Consumable),
         new ProductDefinition(m_coin_300, ProductType.Consumable),
         new ProductDefinition(m_coin_500, ProductType.Consumable),

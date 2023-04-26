@@ -12,6 +12,8 @@ public class pfb_Shop : UIBehavior
     public PopupBuySkin07 PopupBuySkin07;
     public PopupBuySkin08 PopupBuySkin08;
     public GameObject PopupBuy;
+
+    public List<PopupNewSkin> ListPopupNewSkin = new List<PopupNewSkin>();
     public void EnablePopupSkin01(bool b)
     {
         PopupBuySkin01.gameObject.SetActive(b);
@@ -25,6 +27,11 @@ public class pfb_Shop : UIBehavior
     public void EnablePopupSkin08(bool b)
     {
         PopupBuySkin08.gameObject.SetActive(b);
+        PopupBuy.gameObject.SetActive(!b);
+    }
+    public void EnablePopupSkin(bool b, int _Id)
+    {
+        ListPopupNewSkin.Find(x => x.id == _Id).gameObject.SetActive(b);
         PopupBuy.gameObject.SetActive(!b);
     }
     protected override void OnEnable()
@@ -66,25 +73,106 @@ public class pfb_Shop : UIBehavior
                 return Facade.m_coin_100;
         }
     }
+    public static string GetProductId(int id)
+    {
+        switch (id)
+        {
+            case 9:
+                return Facade.m_skin02_7days_1;
+            case 10:
+                return Facade.m_skin02_7days_2;
+            case 11:
+                return Facade.m_skin02_7days_3;
+            case 12:
+                return Facade.m_skin02_7days_4;
+            case 13:
+                return Facade.m_skin02_7days_5;
+            case 14:
+                return Facade.m_skin02_7days_6;
+            case 15:
+                return Facade.m_skin01_4week;
+            case 16:
+                return Facade.m_skin01_3month;
+            case 17:
+                return Facade.m_skin01_6month;
+            
+            default:
+                return Facade.m_coin_100;
+        }
+    }
 
     #region EVENT CALLBACK PURCHASED
     public void EarnPackSkin_01()
     {
         PlayerData.Instance.Unlock_Skin01 = 1;
         PlayerData.Instance.Skin_Equipped = 1;
-        UIManager.Instance.pfb_Shop.UpdateAllItemSkinBullet();
+        UpdateAllItemSkinBullet();
     }
     public void EarnPackSkin_07()
     {
         PlayerData.Instance.Unlock_Skin07 = 1;
         PlayerData.Instance.Skin_Equipped = 7;
-        UIManager.Instance.pfb_Shop.UpdateAllItemSkinBullet();
+        UpdateAllItemSkinBullet();
     }
     public void EarnPackSkin_08()
     {
         PlayerData.Instance.Unlock_Skin08 = 1;
         PlayerData.Instance.Skin_Equipped = 8;
-        UIManager.Instance.pfb_Shop.UpdateAllItemSkinBullet();
+        UpdateAllItemSkinBullet();
+    }
+    public void EarnPackSkin_09()
+    {
+        PlayerData.Instance.Unlock_Skin09 = 1;
+        PlayerData.Instance.Skin_Equipped = 9;
+        UpdateAllItemSkinBullet();
+    }
+    public void EarnPackSkin_10()
+    {
+        PlayerData.Instance.Unlock_Skin10 = 1;
+        PlayerData.Instance.Skin_Equipped = 10;
+        UpdateAllItemSkinBullet();
+    }
+    public void EarnPackSkin_11()
+    {
+        PlayerData.Instance.Unlock_Skin11 = 1;
+        PlayerData.Instance.Skin_Equipped = 11;
+        UpdateAllItemSkinBullet();
+    }
+    public void EarnPackSkin_12()
+    {
+        PlayerData.Instance.Unlock_Skin12 = 1;
+        PlayerData.Instance.Skin_Equipped = 12;
+        UpdateAllItemSkinBullet();
+    }
+    public void EarnPackSkin_13()
+    {
+        PlayerData.Instance.Unlock_Skin13 = 1;
+        PlayerData.Instance.Skin_Equipped = 13;
+        UpdateAllItemSkinBullet();
+    }
+    public void EarnPackSkin_14()
+    {
+        PlayerData.Instance.Unlock_Skin14 = 1;
+        PlayerData.Instance.Skin_Equipped = 14;
+        UpdateAllItemSkinBullet();
+    }
+    public void EarnPackSkin_15()
+    {
+        PlayerData.Instance.Unlock_Skin15 = 1;
+        PlayerData.Instance.Skin_Equipped = 15;
+        UpdateAllItemSkinBullet();
+    }
+    public void EarnPackSkin_16()
+    {
+        PlayerData.Instance.Unlock_Skin16 = 1;
+        PlayerData.Instance.Skin_Equipped = 16;
+        UpdateAllItemSkinBullet();
+    }
+    public void EarnPackSkin_17()
+    {
+        PlayerData.Instance.Unlock_Skin17 = 1;
+        PlayerData.Instance.Skin_Equipped = 17;
+        UpdateAllItemSkinBullet();
     }
     #endregion
     private void Start()

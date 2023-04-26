@@ -182,9 +182,9 @@ public class IAPManager : IStoreListener
 
         return product.hasReceipt && IsPurchaseValid(product);
     }
-    public void OnInitializeFailed(InitializationFailureReason error, string message){
+    // public void OnInitializeFailed(InitializationFailureReason error, string message){
 
-    }
+    // }
     void IStoreListener.OnInitialized(IStoreController storeController, IExtensionProvider storeExtensions)
     {
         this.storeController = storeController;

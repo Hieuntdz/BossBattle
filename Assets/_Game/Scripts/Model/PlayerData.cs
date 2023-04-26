@@ -20,6 +20,15 @@ public class PlayerData : MonoSingleton<PlayerData>
     private int m_unlock_skin6;
     private int m_unlock_skin7;
     private int m_unlock_skin8;
+    private int m_unlock_skin9;
+    private int m_unlock_skin10;
+    private int m_unlock_skin11;
+    private int m_unlock_skin12;
+    private int m_unlock_skin13;
+    private int m_unlock_skin14;
+    private int m_unlock_skin15;
+    private int m_unlock_skin16;
+    private int m_unlock_skin17;
     private int m_skin_equipped;
     public int Coin{
         get{
@@ -120,6 +129,87 @@ public class PlayerData : MonoSingleton<PlayerData>
             PlayerPrefs.SetInt("Unlock_Skin08", value);
         }
     }
+    public int Unlock_Skin09{
+        get{
+            return this.m_unlock_skin9;
+        }
+        set{
+            this.m_unlock_skin9 = value;
+            PlayerPrefs.SetInt("Unlock_Skin09", value);
+        }
+    }
+    public int Unlock_Skin10{
+        get{
+            return this.m_unlock_skin10;
+        }
+        set{
+            this.m_unlock_skin10 = value;
+            PlayerPrefs.SetInt("Unlock_Skin010", value);
+        }
+    }
+    public int Unlock_Skin11{
+        get{
+            return this.m_unlock_skin11;
+        }
+        set{
+            this.m_unlock_skin11 = value;
+            PlayerPrefs.SetInt("Unlock_Skin011", value);
+        }
+    }
+    public int Unlock_Skin12{
+        get{
+            return this.m_unlock_skin12;
+        }
+        set{
+            this.m_unlock_skin12 = value;
+            PlayerPrefs.SetInt("Unlock_Skin012", value);
+        }
+    }
+    public int Unlock_Skin13{
+        get{
+            return this.m_unlock_skin13;
+        }
+        set{
+            this.m_unlock_skin13 = value;
+            PlayerPrefs.SetInt("Unlock_Skin013", value);
+        }
+    }
+    public int Unlock_Skin14{
+        get{
+            return this.m_unlock_skin14;
+        }
+        set{
+            this.m_unlock_skin14 = value;
+            PlayerPrefs.SetInt("Unlock_Skin014", value);
+        }
+    }
+    public int Unlock_Skin15{
+        get{
+            return this.m_unlock_skin15;
+        }
+        set{
+            this.m_unlock_skin15 = value;
+            PlayerPrefs.SetInt("Unlock_Skin015", value);
+        }
+    }
+    public int Unlock_Skin16{
+        get{
+            return this.m_unlock_skin16;
+        }
+        set{
+            this.m_unlock_skin16 = value;
+            PlayerPrefs.SetInt("Unlock_Skin016", value);
+        }
+    }
+    public int Unlock_Skin17{
+        get{
+            return this.m_unlock_skin17;
+        }
+        set{
+            this.m_unlock_skin17 = value;
+            PlayerPrefs.SetInt("Unlock_Skin017", value);
+        }
+    }
     public int CurrentLevel{
         get{
             return this.m_CurrentLevel;
@@ -194,6 +284,15 @@ public class PlayerData : MonoSingleton<PlayerData>
         m_unlock_skin6 = PlayerPrefs.GetInt("Unlock_Skin06", 0);
         m_unlock_skin7 = PlayerPrefs.GetInt("Unlock_Skin07", 0);
         m_unlock_skin8 = PlayerPrefs.GetInt("Unlock_Skin08", 0);
+        m_unlock_skin8 = PlayerPrefs.GetInt("Unlock_Skin09", 0);
+        m_unlock_skin8 = PlayerPrefs.GetInt("Unlock_Skin10", 0);
+        m_unlock_skin8 = PlayerPrefs.GetInt("Unlock_Skin11", 0);
+        m_unlock_skin8 = PlayerPrefs.GetInt("Unlock_Skin12", 0);
+        m_unlock_skin8 = PlayerPrefs.GetInt("Unlock_Skin13", 0);
+        m_unlock_skin8 = PlayerPrefs.GetInt("Unlock_Skin14", 0);
+        m_unlock_skin8 = PlayerPrefs.GetInt("Unlock_Skin15", 0);
+        m_unlock_skin8 = PlayerPrefs.GetInt("Unlock_Skin16", 0);
+        m_unlock_skin8 = PlayerPrefs.GetInt("Unlock_Skin17", 0);
         m_skin_equipped = PlayerPrefs.GetInt("skin_equipped", 0);
 
         #if UNITY_EDITOR
