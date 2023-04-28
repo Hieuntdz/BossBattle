@@ -41,11 +41,11 @@ public class ItemSkinBullet : MonoBehaviour
                 CoinIcon.SetActive(true);
                 CoinTxt.gameObject.SetActive(true);
 
-            if(Id == 1 || Id == 7 || Id == 8){
+            if(Id == 1){
                 CoinIcon.SetActive(false);
                 CoinTxt.gameObject.SetActive(false);
             }
-            if(Id >= 9 || Id <= 17){
+            if(Id >= 7 && Id <= 17){
                 CoinIcon.SetActive(false);
                 CoinTxt.gameObject.SetActive(false);
             }
